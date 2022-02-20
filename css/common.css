@@ -1,0 +1,6 @@
+header p,
+footer p {
+  background-color: rgb(255, 159, 239);
+  margin: 0;
+  padding: 20px;
+}

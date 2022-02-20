@@ -1,52 +1,13 @@
 /* =================================================== */
-/* ------------------ Example 2 ---------------------- */
-/* =================================================== */
-/* Example 1 is OK if nothing change, but If designer 
-   change container & size of elements, we should change 
-   many values, so in this case better approach is 
-   calculate with percentages
-*/
-.container {
-  width: 1230px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  outline: 1px solid green;
-}
-
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.flex-element {
-  outline: 1px solid red;
-  /* calc((100% - 60px) / 3 */
-  width: calc((100% - 60px) / 3);
-  margin-right: 30px;
-}
-
-.flex-element:nth-child(3n) {
-  margin-right: 0;
-}
-/* =================================================== */
-/* --------------------------------------------------- */
-/* =================================================== */
-
-/*  */
-/*  */
-/*  */
-
-/* =================================================== */
 /* ------------------ Example 1 ---------------------- */
 /* =================================================== */
 /* Approaches 1, 2, 3 work for case when we have:
-- exactly container 1230px, 
+- exactly flex container 1230px, 
+- exactly flex element = width: 380px;
 - there are 3 columns of elements,
   element1 element2 element3
   element4 element5 element6
-- also approaches work with exactly 3, 6, 9 ... elements
+- also approaches work good with exactly 3, 6, 9 ... elements
 */
 /* .container {
   width: 1230px;
@@ -105,6 +66,94 @@
 /* .flex-element:not(:nth-last-child(-n + 3)) {
   margin-bottom: 30px;
 } */
+/* =================================================== */
+/* --------------------------------------------------- */
+/* =================================================== */
+
+/*  */
+/*  */
+/*  */
+
+/* =================================================== */
+/* ------------------ Example 2 ---------------------- */
+/* =================================================== */
+/* Example 1 is OK if nothing change, but If designer 
+   change container & size of elements, we should change 
+   many values, so in this case better approach is 
+   calculate with percentages
+   - in this approach flex elements will have any width, 
+     or for text elements don't set width
+   - flex container
+      |element1| 30px |element2| 30px |element3|
+      |element4| 30px |element5| 30px |element6|
+   
+*/
+/* .container {
+  width: 1230px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  outline: 1px solid green;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-element {
+  outline: 1px solid red;
+  width: calc((100% - 60px) / 3);
+}
+
+.flex-element:not(:nth-child(3n)) {
+  margin-right: 30px;
+}
+.flex-element:not(:nth-last-child(-n + 3)) {
+  margin-bottom: 30px;
+} */
+/* =================================================== */
+/* --------------------------------------------------- */
+/* =================================================== */
+
+/*  */
+/*  */
+/*  */
+
+/* =================================================== */
+/* ------------------ Example 3 ---------------------- */
+/* =================================================== */
+/* Approach 1 - If we need 30px between elements*/
+/*Make +15px for flex-element & -15px for .flex-container 
+  Work good in case:
+  - when fixing flex element WIDTH;
+  - we don't need any background-color in flex-container;
+  In our case width outlines in container & flex-element 
+  we find out that our flex container use space of 
+  neighbourhood elements, in this example space of header/footer
+*/
+.container {
+  width: 1230px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  outline: 1px solid green;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -15px;
+  outline: 3px dotted orange;
+}
+
+.flex-element {
+  outline: 1px solid red;
+  width: 380px;
+  margin: 15px;
+}
 /* =================================================== */
 /* --------------------------------------------------- */
 /* =================================================== */
