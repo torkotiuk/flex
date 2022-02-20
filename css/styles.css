@@ -133,15 +133,6 @@
   we find out that our flex container use space of 
   neighbourhood elements, in this example space of header/footer
 */
-.container {
-  width: 1230px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  outline: 1px solid green;
-}
-
 .flex-container {
   display: flex;
   flex-wrap: wrap;
